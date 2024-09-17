@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title>Name App by Neha</title>
+		<style>
+			*{font-size:40px; font-family:calibri;}
+			body{background-color:azure;}
+		</style>
+	</head>
+	<body>
+		<center>
+			<h1> Welcome app by Neha</h1>
+			<form onsubmit="show()">
+				<input type="text" id="name" placeholder="enter your name"/>
+				<br><br>
+				<input type="submit"/>
+			</form>
+				<h2 id="msg"/>
+
+			<script>
+				function show()
+				{
+					event.preventDefault();
+					let name=document.getElementById("name");
+					let msg= document.getElementById("msg");
+					
+					if(name.value==="")
+					{
+						alert(" u have not entered name");
+						msg.innerHTML="";
+						name.focus();
+						return;
+					}
+					
+					if(name.value.trim()==="")
+					{
+						alert("name should not be blank space");
+						msg.innerHTML="";
+						name.value="";
+						name.focus();
+						return;
+					}
+
+					if(!name.value.match(/^[A-Za-z]+$/))
+					{
+						alert(" name should contain only alphabets");
+						msg.innerHTML="";
+						name.focus();
+						return;
+					}
+					
+					let d= new Date();
+					let hr= d.getHours();
+					let ans="";
+
+					if(hr<12)     ans="Good Morning " + name.value;
+                              
+					else if(hr<16)   ans="Good Afternoon " + name.value;
+
+ 					else      ans="Good Evening " + name.value;
+					msg.innerHTML= ans;
+				}
+						
+			</script>
+		</center>
+	</body>
+</html>
